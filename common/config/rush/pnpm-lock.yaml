@@ -1,4 +1,9 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
+
+patchedDependencies:
+  is-odd@3.0.1:
+    hash: lam3kzn7hynpymr43zu54rzlfy
+    path: patches/is-odd@3.0.1.patch
 
 importers:
 
@@ -9,7 +14,7 @@ importers:
     specifiers:
       is-odd: 3.0.1
     dependencies:
-      is-odd: 3.0.1
+      is-odd: 3.0.1_lam3kzn7hynpymr43zu54rzlfy
 
   ../../packages/demo-b:
     specifiers:
@@ -48,3 +53,11 @@ packages:
     dependencies:
       is-number: 6.0.0
     dev: false
+
+  /is-odd/3.0.1_lam3kzn7hynpymr43zu54rzlfy:
+    resolution: {integrity: sha512-CQpnWPrDwmP1+SMHXZhtLtJv90yiyVfluGsX5iNCVkrhQtU3TQHsUWPG9wkdk9Lgd5yNpAg9jQEo90CBaXgWMA==}
+    engines: {node: '>=4'}
+    dependencies:
+      is-number: 6.0.0
+    dev: false
+    patched: true
