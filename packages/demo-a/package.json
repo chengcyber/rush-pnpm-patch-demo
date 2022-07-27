@@ -1,0 +1,16 @@
+{
+  "name": "demo-a",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Cheng Liu",
+  "license": "ISC",
+  "dependencies": {
+    "is-odd": "3.0.1"
+  }
+}
