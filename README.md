@@ -18,7 +18,7 @@ Run `rush-pnpm patch is-odd@3.0.1`. It prints
 You can now edit the following folder: /tmp/0aa7035fc4b05681226c6a4334b026c1/user
 ```
 
-> Note: the folder path is different in each machine.
+> Note: the folder path is different in different machine.
 
 2. "patch" the `is-odd@3.0.1`
 
@@ -52,4 +52,36 @@ Run `rush-pnpm patch-commit /tmp/0aa7035fc4b05681226c6a4334b026c1/user`
 
 The common/config/rush/pnpm-lock.yaml and common/pnpm/patches should be refreshed
 
-DONE. Remember to commit this change to Git.
+4. Check it works
+
+Run `rush build`
+
+demo-a.build.log says
+
+```
+Invoking: node index.js 
+123
+demo-a true
+```
+
+It works for `is-odd@3.0.1` in `demo-a` ✅
+
+demo-b.build.log says
+
+```
+Invoking: node index.js 
+demo-b true
+```
+
+Even though `demo-b` depends on `is-odd@3.0.1`, the patched `is-odd` is not used by `demo-b` ✅
+
+demo-c.build.log says
+
+```
+Invoking: node index.js 
+demo-c true
+```
+
+`is-odd@2.0.0` in `demo-c` is irrelevant with the patched `is-odd` ✅
+
+DONE. 👏 Remember to commit this change to Git.
