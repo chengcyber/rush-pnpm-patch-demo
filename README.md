@@ -46,8 +46,14 @@ module.exports = function isOdd(value) {
 
 3. Commit the patches
 
-Run `rush-pnpm patch-commit /tmp/0aa7035fc4b05681226c6a4334b026c1/user`
+Move to `demo-a` project folder, and run `patch-commit`
 
+```shell
+cd packages/demo-a
+rush-pnpm patch-commit /tmp/0aa7035fc4b05681226c6a4334b026c1/user
+```
+
+> NOTE: patch-commit should be run under a project folder.  
 > NOTE: replace the temp folder to your own folder path
 
 The common/config/rush/pnpm-lock.yaml and common/pnpm/patches should be refreshed
