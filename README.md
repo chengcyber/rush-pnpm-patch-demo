@@ -2,6 +2,11 @@
 
 This is a demo repo for `rush-pnpm patch` and `rush-pnpm patch-commit`
 
+# Prerequisite
+
+- Specify "pnpmVersion" >= "7.4.0" in rush.json.
+- Move the content of "pnpmOptions" in rush.json to **common/config/rush/pnpm-config.json** and remove "pnpmOptions" in rush.json.
+
 # Package Dependencies
 
 - demo-a depends on `is-odd@3.0.1`
@@ -56,13 +61,15 @@ rush-pnpm patch-commit /tmp/0aa7035fc4b05681226c6a4334b026c1/user
 > NOTE: patch-commit should be run under a project folder.  
 > NOTE: replace the temp folder to your own folder path
 
-The common/config/rush/pnpm-lock.yaml and common/pnpm/patches should be refreshed
+The common/config/rush/pnpm-config.json, common/config/rush/pnpm-lock.yaml and common/pnpm/patches should be refreshed
 
 4. Check it works
 
-Run `rush build`
+Run `rush rebuild --verbose`
 
-demo-a.build.log says
+> NOTE: patched dependency has the exactly same integrity of the raw dependency. It confuses rush build cache, so it's essential to invoke `rebuild` here to see the correct log output.
+
+a. demo-a.build.log says
 
 ```
 Invoking: node index.js 
@@ -72,16 +79,17 @@ demo-a true
 
 It works for `is-odd@3.0.1` in `demo-a` ✅
 
-demo-b.build.log says
+b. demo-b.build.log says
 
 ```
 Invoking: node index.js 
+123
 demo-b true
 ```
 
-Even though `demo-b` depends on `is-odd@3.0.1`, the patched `is-odd` is not used by `demo-b` ✅
+Because `demo-b` depends on `is-odd@3.0.1`, the patched `is-odd` is used by `demo-b` ✅
 
-demo-c.build.log says
+c. demo-c.build.log says
 
 ```
 Invoking: node index.js 
