@@ -1,0 +1,33 @@
+diff --git a/index.js b/index.js
+index 79d1f22a8e7a27efb8841bb83cb682ea1ff3a59c..95d31649680b597da9994f09eab5cabefc7c3f96 100644
+--- a/index.js
++++ b/index.js
+@@ -5,21 +5,21 @@
+  * Released under the MIT License.
+  */
+ 
+-'use strict';
++"use strict";
+ 
+-const isNumber = require('is-number');
++const isNumber = require("is-number");
+ 
+ module.exports = function isOdd(value) {
++  console.log("kkkkkk");
+   const n = Math.abs(value);
+   if (!isNumber(n)) {
+-    throw new TypeError('expected a number');
++    throw new TypeError("expected a number");
+   }
+   if (!Number.isInteger(n)) {
+-    throw new Error('expected an integer');
++    throw new Error("expected an integer");
+   }
+   if (!Number.isSafeInteger(n)) {
+-    throw new Error('value exceeds maximum safe integer');
++    throw new Error("value exceeds maximum safe integer");
+   }
+-  return (n % 2) === 1;
++  return n % 2 === 1;
+ };
+-
